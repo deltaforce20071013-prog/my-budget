@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f8ff">
+  <meta name="description" content="My Budget - Personal Finance Manager">
+
+  <title>My Budget</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+
+  <div class="app">
+
+    <header class="header">
+      <div class="brand">
+        <div class="brand-icon">M</div>
+        <div>
+          <h1>My Budget</h1>
+          <p>Personal Finance</p>
+        </div>
+      </div>
+
+      <select id="language">
+        <option value="uz">UZ</option>
+        <option value="ru">RU</option>
+        <option value="en">EN</option>
+      </select>
+    </header>
+
+    <main>
+
+      <section class="balance-card">
+        <div class="balance-top">
+          <span data-i18n="totalBalance">Umumiy balans</span>
+          <span class="balance-icon">◈</span>
+        </div>
+
+        <h2 id="balance">0 UZS</h2>
+
+        <div class="currency-control">
+          <label for="currency" data-i18n="currency">Valyuta</label>
+          <select id="currency">
+            <option value="UZS">UZS</option>
+            <option value="USD">USD</option>
+            <option value="KRW">KRW</option>
+            <option value="EUR">EUR</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="stats">
+
+        <div class="stat-card income">
+          <span data-i18n="income">Daromad</span>
+          <h3 id="income">0</h3>
+          <small>↗</small>
+        </div>
+
+        <div class="stat-card expense">
+          <span data-i18n="expense">Xarajat</span>
+          <h3 id="expense">0</h3>
+          <small>↘</small>
+        </div>
+
+      </section>
+
+      <section class="actions">
+        <button class="action-btn add-income" id="incomeBtn">
+          + <span data-i18n="addIncome">Daromad qo‘shish</span>
+        </button>
+
+        <button class="action-btn add-expense" id="expenseBtn">
+          − <span data-i18n="addExpense">Xarajat qo‘shish</span>
+        </button>
+      </section>
+
+      <section class="transactions">
+        <div class="section-heading">
+          <h2 data-i18n="history">Operatsiyalar tarixi</h2>
+          <span id="transactionCount">0</span>
+        </div>
+
+        <div id="transactionList" class="transaction-list">
+          <p class="empty" data-i18n="empty">
+            Hozircha operatsiyalar mavjud emas
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      My Budget <span>•</span> Version 1.0
+    </footer>
+
+  </div>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+
+      <button class="close-btn" id="closeModal">×</button>
+
+      <h2 id="modalTitle">Yangi operatsiya</h2>
+
+      <form id="transactionForm">
+
+        <label data-i18n="amount">Miqdor</label>
+        <input
+          type="number"
+          id="amount"
+          min="0.01"
+          step="any"
+          placeholder="Masalan: 100000"
+          required
+        >
+
+        <label data-i18n="category">Kategoriya</label>
+        <select id="category">
+          <option value="Food">Oziq-ovqat</option>
+          <option value="Transport">Transport</option>
+          <option value="Shopping">Xaridlar</option>
+          <option value="Salary">Maosh</option>
+          <option value="Other">Boshqa</option>
+        </select>
+
+        <label data-i18n="note">Izoh</label>
+        <input type="text" id="note" placeholder="Izoh...">
+
+        <button type="submit" class="submit-btn" data-i18n="save">
+          Saqlash
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+  <script src="js/language.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
